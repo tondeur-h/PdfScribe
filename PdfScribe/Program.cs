@@ -253,6 +253,8 @@ namespace PdfScribe
             {
                 Process.Start(pdfFilename);
             }
+
+            Process.Start("C:/PrintDPI/PrintDPI.exe");
         }
 
         /// <summary>
