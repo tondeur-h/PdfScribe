@@ -229,7 +229,10 @@ namespace PdfScribe
 
         private static String GetOutputFilename()
         {
-            String outputFilename = Path.GetFullPath(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.OutputFile));
+            String timeStamp = GetTimestamp(DateTime.Now);
+            String outputFilename = Path.GetFullPath(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.OutputPath) + "\\CHV" + timeStamp + ".PDF");
+
+            //String outputFilename = Path.GetFullPath(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.OutputFile));
             // Check if there are any % characters -
             // even though it's a legal Windows filename character,
             // it is a special character to Ghostscript
@@ -238,6 +241,11 @@ namespace PdfScribe
             return outputFilename;
         }
 
+        //return String as timeStamp for construct file Name
+        public static String GetTimestamp(DateTime value)
+        {
+            return value.ToString("yyyyMMddHHmmssffff");
+        }
 
         /// <summary>
         /// Opens the PDF in the default viewer
@@ -254,6 +262,7 @@ namespace PdfScribe
                 Process.Start(pdfFilename);
             }
 
+            /// Appeler print2dpi par defaut aprés enregistrement du fichier pdf
             Process.Start("C:/PrintDPI/PrintDPI.exe");
         }
 

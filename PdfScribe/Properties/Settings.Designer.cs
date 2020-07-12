@@ -31,7 +31,19 @@ namespace PdfScribe.Properties {
                 return ((string)(this["OutputFile"]));
             }
         }
-        
+
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\PrintDPI\\temp")]
+        public string OutputPath
+        {
+            get
+            {
+                return ((string)(this["OutputPath"]));
+            }
+        }
+
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
